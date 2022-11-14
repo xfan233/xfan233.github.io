@@ -266,7 +266,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_53 = function() {
+(lib.CachedBmp_55 = function() {
 	this.initialize(ss["_HTML5 Canvas_B2A32電子喜帖__atlas_2"]);
 	this.gotoAndStop(33);
 }).prototype = p = new cjs.Sprite();
@@ -280,7 +280,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_52 = function() {
+(lib.CachedBmp_54 = function() {
 	this.initialize(ss["_HTML5 Canvas_B2A32電子喜帖__atlas_2"]);
 	this.gotoAndStop(35);
 }).prototype = p = new cjs.Sprite();
@@ -2149,13 +2149,13 @@ if (reversed == null) { reversed = false; }
 	this.instance_20.setTransform(318.15,211.65,1,1,0,0,0,55.4,114);
 	this.instance_20.alpha = 0.5;
 
-	this.instance_21 = new lib.CachedBmp_52();
+	this.instance_21 = new lib.CachedBmp_54();
 	this.instance_21.setTransform(152.8,66.25,0.5,0.5);
 
 	this.instance_22 = new lib.CachedBmp_18();
 	this.instance_22.setTransform(281.15,119.9,0.5,0.5);
 
-	this.instance_23 = new lib.CachedBmp_53();
+	this.instance_23 = new lib.CachedBmp_55();
 	this.instance_23.setTransform(152.8,66.25,0.5,0.5);
 
 	var maskedShapeInstanceList = [this.instance_19,this.instance_20,this.instance_21,this.instance_22,this.instance_23];
@@ -2188,8 +2188,8 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/_HTML5 Canvas_B2A32電子喜帖__atlas_1.png?1668394677713", id:"_HTML5 Canvas_B2A32電子喜帖__atlas_1"},
-		{src:"images/_HTML5 Canvas_B2A32電子喜帖__atlas_2.png?1668394677714", id:"_HTML5 Canvas_B2A32電子喜帖__atlas_2"}
+		{src:"images/_HTML5 Canvas_B2A32電子喜帖__atlas_1.png?1668395045742", id:"_HTML5 Canvas_B2A32電子喜帖__atlas_1"},
+		{src:"images/_HTML5 Canvas_B2A32電子喜帖__atlas_2.png?1668395045743", id:"_HTML5 Canvas_B2A32電子喜帖__atlas_2"}
 	],
 	preloads: []
 };
