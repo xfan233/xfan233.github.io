@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://one-homework.w3spaces-preview.com/home-work-05.html -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h4 {
+        color: red;
+    }
+
+    p {
+        margin: 7px;
+    }
+
+    div {
+        color: blue;
+    }
+</style>
+
+      </head>
+    <body>
+<script>
+    var myName = "范翔威";
+    var myAge = 21;
+    var myHeight = 167; 
+    var myWeight = 51;
+
+    document.write("<p>1.我是B4A32, " + myName + "</p>");
+    document.write("<p><h4>2.大家好！我最喜歡吃的水果是芒果</h4></p>");
+    document.write("<div>以下為變數設定練習</div>");
+    document.write("<p>3.我是" + myName + "，今年" + myAge + "歲" + "</p>");
+    document.write("<p>4.我的身高為" + myHeight + "公分，" + "我的體重為" + myWeight + "公斤" + "</p>");
+    document.write("<p>5.所以我的BMI為" + myWeight / Math.pow((myHeight/100),2) + "</p>");
+    document.write("<div>以下為for計次迴圈控制</div>");
+
+    var sum = 0;
+    for (i=1; i<=100; i++){
+        sum += i;
+    }
+
+    document.write("<p>6.從1加到100的總和為" + sum + "</p>");
+var count = 6;
+function showSum(endNo){
+    var sum = 0;
+    for (i = 1; i <= endNo; i++){
+        sum += i;
+    }
+    count += 1;
+    document.write("<p>" + count + ". 從1加到" + endNo + "的總和為" + sum + "</p>");
+}
+
+showSum(10);
+showSum(100);
+showSum(1000);
+showSum(10000);
+document.write("<div>以下為九九乘法表</div>");
+
+function nTimesNtable(n) {
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            document.write(i + " X " + j + " = " + (i * j) + " ");
+        }
+        document.write("<br>");
+    }
+}
+
+nTimesNtable(9);
+
+</script><p>1.我是B4A32, 范翔威</p><p></p><h4>2.大家好！我最喜歡吃的水果是芒果</h4><p></p><div>以下為變數設定練習</div><p>3.我是范翔威，今年21歲</p><p>4.我的身高為167公分，我的體重為51公斤</p><p>5.所以我的BMI為18.286779733945284</p><div>以下為for計次迴圈控制</div><p>6.從1加到100的總和為5050</p><p>7. 從1加到10的總和為55</p><p>8. 從1加到100的總和為5050</p><p>9. 從1加到1000的總和為500500</p><p>10. 從1加到10000的總和為50005000</p><div>以下為九九乘法表</div>1 X 1 = 1 1 X 2 = 2 1 X 3 = 3 1 X 4 = 4 1 X 5 = 5 1 X 6 = 6 1 X 7 = 7 1 X 8 = 8 1 X 9 = 9 <br>2 X 1 = 2 2 X 2 = 4 2 X 3 = 6 2 X 4 = 8 2 X 5 = 10 2 X 6 = 12 2 X 7 = 14 2 X 8 = 16 2 X 9 = 18 <br>3 X 1 = 3 3 X 2 = 6 3 X 3 = 9 3 X 4 = 12 3 X 5 = 15 3 X 6 = 18 3 X 7 = 21 3 X 8 = 24 3 X 9 = 27 <br>4 X 1 = 4 4 X 2 = 8 4 X 3 = 12 4 X 4 = 16 4 X 5 = 20 4 X 6 = 24 4 X 7 = 28 4 X 8 = 32 4 X 9 = 36 <br>5 X 1 = 5 5 X 2 = 10 5 X 3 = 15 5 X 4 = 20 5 X 5 = 25 5 X 6 = 30 5 X 7 = 35 5 X 8 = 40 5 X 9 = 45 <br>6 X 1 = 6 6 X 2 = 12 6 X 3 = 18 6 X 4 = 24 6 X 5 = 30 6 X 6 = 36 6 X 7 = 42 6 X 8 = 48 6 X 9 = 54 <br>7 X 1 = 7 7 X 2 = 14 7 X 3 = 21 7 X 4 = 28 7 X 5 = 35 7 X 6 = 42 7 X 7 = 49 7 X 8 = 56 7 X 9 = 63 <br>8 X 1 = 8 8 X 2 = 16 8 X 3 = 24 8 X 4 = 32 8 X 5 = 40 8 X 6 = 48 8 X 7 = 56 8 X 8 = 64 8 X 9 = 72 <br>9 X 1 = 9 9 X 2 = 18 9 X 3 = 27 9 X 4 = 36 9 X 5 = 45 9 X 6 = 54 9 X 7 = 63 9 X 8 = 72 9 X 9 = 81 <br>
+
+
+
+
+</body></html>
