@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://one-homework.w3spaces-preview.com/home-work-08-AI.html -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>作業08</title>
+    <style>
+        h4 {
+            color: red;
+        }
+
+        label {
+            color: blue;
+        }
+
+        input {
+            color: brown;
+        }
+
+        div {
+            color: blue;
+            margin: 5px;
+        }
+
+        table {
+            border-style: solid;
+            border-width: 2px;
+            border-color: dodgerblue;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 2px solid dodgerblue;
+            padding: 5px 10px;
+        }
+
+        td.label {
+            color: brown;
+            font-weight: bold;
+        }
+
+        td.content {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form01">
+        <label>姓名：</label>
+        <input type="text" name="name01" value="范翔威"><br>
+
+        <label>收件地址：</label>
+        <input type="text" name="address01" value="新北市中和區忠孝街37巷23號"><br>
+
+        <label>電話：</label>
+        <input type="tel" name="tel01" value="0908106785"><br>
+
+        <label>電子郵件：</label>
+        <input type="email" name="email01" value="asftf45573621@gmail.com"><br>
+
+        <label>指定送貨日期：</label>
+        <input type="date" name="date01"><br>
+
+        <label>水果種類：（四選一）</label><br>
+        <input type="radio" name="fruit" id="fruit01" value="玉女小番茄">玉女小番茄(3斤/1盒) 650元<br>
+        <input type="radio" name="fruit" id="fruit02" value="極品巨鑽牛奶果(大果)(2.5公斤)">極品巨鑽牛奶果(大果)(2.5公斤) 1070元<br>
+        <input type="radio" name="fruit" id="fruit03" value="台東何班長青梅(25斤)">台東何班長青梅(25斤) 1499元<br>
+        <input type="radio" name="fruit" id="fruit04" value="彰化早春優極葡萄(2公斤)">彰化早春優極葡萄(2公斤) 699元<br>
+    </form>
+    <br>
+    <button onclick="shoppingInfo()" style="color: red; font-size: 1.2em;">結帳</button>
+    <div id="demo"></div>
+
+    <script>
+        function shoppingInfo() {
+            const x = document.getElementById("form01");
+            let item = "";
+            let price = 0;
+            let text = "<h4>您的購物資訊如下：</h4>";
+            text += "<table>";
+            let i;
+
+            for (i = 0; i < 5; i++) {
+                text += "<tr>";
+                switch (i) {
+                    case 0: item = "姓名："; break;
+                    case 1: item = "收件地址："; break;
+                    case 2: item = "電話："; break;
+                    case 3: item = "電子郵件："; break;
+                    case 4: item = "指定送貨日期："; break;
+                }
+                text += "<td class='label'>" + item + "</td>";
+                text += "<td class='content'>" + x.elements[i].value + "</td>";
+                text += "</tr>";
+            }
+
+            let fruitSelected = false;
+
+            for (i = 5; i <= 8; i++) {
+                if (x.elements[i].checked == true) {
+                    fruitSelected = true;
+                    text += "<tr><td class='label'>水果種類：</td><td class='content'>" + x.elements[i].value + "</td></tr>";
+                    switch (i) {
+                        case 5: price = 650; break;
+                        case 6: price = 1070; break;
+                        case 7: price = 1499; break;
+                        case 8: price = 699; break;
+                    }
+                    break;
+                }
+            }
+
+            if (!fruitSelected) {
+                text += "<tr><td colspan='2' style='color:red;'>⚠️ 請選擇一種水果！</td></tr>";
+            }
+
+            text += "<tr><td class='label'>價格合計：</td><td class='content'>" + price + "元</td></tr>";
+            text += "</table>";
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+
+
+
+</body></html>
