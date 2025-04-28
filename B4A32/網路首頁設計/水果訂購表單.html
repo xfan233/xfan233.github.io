@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://one-homework.w3spaces-preview.com/home-work-09.01.html -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>水果訂購表單</title>
+  <style>
+    label {
+      display: inline-block;
+      font-size:12px;
+      width: 80px;
+    }
+    div {
+      color: blue;
+      margin-top: 10px;
+    }
+    .result {
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>水果訂購表單</h2>
+
+<form id="form01">
+  <label>姓名:</label><input type="text" name="name" value="范翔威"><br>
+  <label>收件地址:</label><input type="text" name="address" value="新北市中和區忠孝街37巷23號"><br>
+  <label>電話:</label><input type="tel" name="phone" value="0908106785"><br>
+  <label>電子郵件:</label><input type="email" name="email" value="asftf45573621@gmail.com"><br>
+  <label>指定送貨日期:</label><input type="date" name="date"><br><br>
+
+  水果種類：<br>
+  <input type="checkbox" name="fruit1" value="愛文芒果(1箱)"> 愛文芒果(1箱) 475元
+  購買數量：<input type="number" name="qty1" value="0"><br>
+
+  <input type="checkbox" name="fruit2" value="有機木瓜(6台斤)"> 有機木瓜(6台斤) 435元
+  購買數量：<input type="number" name="qty2" value="0"><br>
+
+  <input type="checkbox" name="fruit3" value="黑鑽石桑葚(5台斤)"> 黑鑽石桑葚(5台斤) 749元
+  購買數量：<input type="number" name="qty3" value="0"><br><br>
+
+  <button type="button" onclick="shoppingInfo()">結帳</button>
+</form>
+
+<div class="result" id="demo"></div>
+
+<script>
+  // 定義水果物件
+  const fruit01 = {
+    Name: "愛文芒果(1箱)",
+    Price: 475,
+    No: 0,
+    subTotal: function() {
+      return this.Price * this.No;
+    }
+  };
+  const fruit02 = {
+    Name: "有機木瓜(6台斤)",
+    Price: 435,
+    No: 0,
+    subTotal: function() {
+      return this.Price * this.No;
+    }
+  };
+  const fruit03 = {
+    Name: "黑鑽石桑葚(5台斤)",
+    Price: 749,
+    No: 0,
+    subTotal: function() {
+      return this.Price * this.No;
+    }
+  };
+
+  function shoppingInfo() {
+    var x = document.getElementById("form01");
+    var text = "";
+    var sumToPay = 0;
+
+    // 處理基本資料欄位 (前五欄)
+    const labels = ["姓名: ", "收件地址: ", "電話: ", "電子郵件: ", "指定送貨日期: "];
+    for (let i = 0; i < 5; i++) {
+      text += labels[i] + x.elements[i].value + "<br>";
+    }
+    text += "<br>";
+
+    // 處理水果選項，從 element[5] 到 [10]
+    for (let i = 5; i <= 9; i += 2) {
+      if (x.elements[i].checked === true) {
+        switch(i) {
+          case 5:
+            fruit01.No = parseInt(x.elements[i + 1].value) || 0;
+            sumToPay += fruit01.subTotal();
+            text += `${fruit01.Name}, 數量: ${fruit01.No}，小計: ${fruit01.subTotal()}元<br>`;
+            break;
+          case 7:
+            fruit02.No = parseInt(x.elements[i + 1].value) || 0;
+            sumToPay += fruit02.subTotal();
+            text += `${fruit02.Name}, 數量: ${fruit02.No}，小計: ${fruit02.subTotal()}元<br>`;
+            break;
+          case 9:
+            fruit03.No = parseInt(x.elements[i + 1].value) || 0;
+            sumToPay += fruit03.subTotal();
+            text += `${fruit03.Name}, 數量: ${fruit03.No}，小計: ${fruit03.subTotal()}元<br>`;
+            break;
+        }
+      }
+    }
+
+    text += `<br><strong>總金額合計: ${sumToPay}元</strong>`;
+    document.getElementById("demo").innerHTML = text;
+  }
+</script>
+
+
+
+</body></html>
