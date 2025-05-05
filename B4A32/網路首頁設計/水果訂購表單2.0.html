@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://one-homework.w3spaces.com/home-work-10.html -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>水果訂購表單</title>
+  <style>
+    label {
+      display: inline-block;
+      font-size: 12px;
+      width: 80px;
+    }
+    div {
+      color: blue;
+      margin-top: 10px;
+    }
+    .result {
+      color: black;
+      font-weight: normal;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 2px solid dodgerblue;
+      border-collapse: collapse;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    td:first-child {
+      color: brown;
+      font-weight: bold;
+    }
+    td:nth-child(2),
+    td:nth-child(3) {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<h2>水果訂購表單</h2>
+
+<form id="form01">
+  <label>姓名:</label><input type="text" name="name" value="范翔威"><br>
+  <label>收件地址:</label><input type="text" name="address" value="新北市中和區忠孝街37巷23號"><br>
+  <label>電話:</label><input type="tel" name="phone" value="0908106785"><br>
+  <label>電子郵件:</label><input type="email" name="email" value="asftf45573621@gmail.com"><br>
+  <label>指定送貨日期:</label><input type="date" name="date"><br><br>
+
+  水果種類：<br>
+  <input type="checkbox" name="fruit1" value="愛文芒果(1箱)"> 玉女小番茄(3斤/1盒) 650元
+  購買數量：<input type="number" name="qty1" id="qty1" value="0"><br>
+
+  <input type="checkbox" name="fruit2" value="有機木瓜(6台斤)"> 極品巨鑽牛奶果(大果)(2.5公斤) 1070元
+  購買數量：<input type="number" name="qty2" id="qty2" value="0"><br>
+
+  <input type="checkbox" name="fruit3" value="黑鑽石桑葚(5台斤)">台東何班長青梅(25斤) 1499元    
+  購買數量：<input type="number" name="qty3" id="qty3" value="0"><br>
+
+  <input type="checkbox" name="fruit4" value="黑鑽石桑葚(5台斤)">彰化早春優極葡萄(2公斤) 699元
+  購買數量：<input type="number" name="qty4" id="qty4" value="0"><br><br>
+
+  <button type="button" id="submitBtn" onclick="shoppingInfo()">確認修改</button>
+</form>
+
+<div class="result" id="demo"><table><tbody><tr><td>姓名</td><td colspan="2">范翔威</td></tr><tr><td>收件地址</td><td colspan="2">新北市中和區忠孝街37巷23號</td></tr><tr><td>電話</td><td colspan="2">0908106785</td></tr><tr><td>電子郵件</td><td colspan="2">asftf45573621@gmail.com</td></tr><tr><td>指定送貨日期</td><td colspan="2">2025-05-02</td></tr><tr><td>水果種類</td><td>玉女小番茄(3斤/1盒)</td><td>共1單位 小計 650元</td></tr><tr><td>水果種類</td><td>極品巨鑽牛奶果(大果)(2.5公斤)</td><td>共1單位 小計 1070元</td></tr><tr><td>水果種類</td><td>彰化早春優極葡萄(2公斤)</td><td>共1單位 小計 699元</td></tr><tr><td>價格合計:</td><td colspan="2">2419元</td></tr></tbody></table></div>
+
+<script>
+  let isSubmitted = false;
+
+  const fruit01 = { Name: "玉女小番茄(3斤/1盒)", Price: 650, No: 0, subTotal() { return this.Price * this.No; }};
+  const fruit02 = { Name: "極品巨鑽牛奶果(大果)(2.5公斤)", Price: 1070, No: 0, subTotal() { return this.Price * this.No; }};
+  const fruit03 = { Name: "台東何班長青梅(25斤)", Price: 1499, No: 0, subTotal() { return this.Price * this.No; }};
+  const fruit04 = { Name: "彰化早春優極葡萄(2公斤)", Price: 699, No: 0, subTotal() { return this.Price * this.No; }};
+
+  function shoppingInfo() {
+    let x = document.getElementById("form01");
+    let text = "";
+    let sumToPay = 0;
+
+    const fields = ["姓名", "收件地址", "電話", "電子郵件", "指定送貨日期"];
+    text += "<table>";
+    for (let i = 0; i < 5; i++) {
+      text += `<tr><td>${fields[i]}</td><td colspan="2">${x.elements[i].value}</td></tr>`;
+    }
+
+    if (x.fruit1.checked) {
+      fruit01.No = parseInt(document.getElementById("qty1").value) || 0;
+      sumToPay += fruit01.subTotal();
+      text += `<tr><td>水果種類</td><td>${fruit01.Name}</td><td>共${fruit01.No}單位 小計 ${fruit01.subTotal()}元</td></tr>`;
+    }
+    if (x.fruit2.checked) {
+      fruit02.No = parseInt(document.getElementById("qty2").value) || 0;
+      sumToPay += fruit02.subTotal();
+      text += `<tr><td>水果種類</td><td>${fruit02.Name}</td><td>共${fruit02.No}單位 小計 ${fruit02.subTotal()}元</td></tr>`;
+    }
+    if (x.fruit3.checked) {
+      fruit03.No = parseInt(document.getElementById("qty3").value) || 0;
+      sumToPay += fruit03.subTotal();
+      text += `<tr><td>水果種類</td><td>${fruit03.Name}</td><td>共${fruit03.No}單位 小計 ${fruit03.subTotal()}元</td></tr>`;
+    }
+    if (x.fruit4.checked) {
+      fruit04.No = parseInt(document.getElementById("qty4").value) || 0;
+      sumToPay += fruit04.subTotal();
+      text += `<tr><td>水果種類</td><td>${fruit04.Name}</td><td>共${fruit04.No}單位 小計 ${fruit04.subTotal()}元</td></tr>`;
+    }
+
+    text += `<tr><td>價格合計:</td><td colspan="2">${sumToPay}元</td></tr>`;
+    text += "</table>";
+
+    document.getElementById("demo").innerHTML = text;
+
+    if (!isSubmitted) {
+      isSubmitted = true;
+      document.getElementById("submitBtn").innerText = "確認修改";
+    }
+  }
+</script>
+
+
+</body></html>
