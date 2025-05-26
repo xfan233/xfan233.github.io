@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///C:/Users/MS/AppData/Local/Temp/Rar$EXa3328.39549.rartemp/index.html -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>狼來了 - 圖片幻燈片</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+    }
+    .slides {
+      display: none;
+      width: 100%;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.3s ease;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    .prev {
+      left: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+
+<h2>狼來了 - 圖片幻燈片</h2>
+
+<div class="slideshow-container">
+  <img class="slides" src="./狼來了 - 圖片幻燈片_files/panel_1.png" alt="圖1" style="display: block;">
+  <img class="slides" src="./狼來了 - 圖片幻燈片_files/panel_2.png" alt="圖2" style="display: none;">
+  <img class="slides" src="./狼來了 - 圖片幻燈片_files/panel_3.png" alt="圖3" style="display: none;">
+  <img class="slides" src="./狼來了 - 圖片幻燈片_files/panel_4.png" alt="圖4" style="display: none;">
+  <img class="slides" src="./狼來了 - 圖片幻燈片_files/panel_5.png" alt="圖5" style="display: none;">
+  <img class="slides" src="./狼來了 - 圖片幻燈片_files/panel_6.png" alt="圖6" style="display: none;">
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.getElementsByClassName("slides");
+
+  function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2000);
+  }
+
+  function plusSlides(n) {
+    slideIndex += n - 1;
+    if (slideIndex < 0) { slideIndex = slides.length - 1; }
+    showSlides();
+  }
+
+  showSlides();
+</script>
+
+
+
+</body></html>
